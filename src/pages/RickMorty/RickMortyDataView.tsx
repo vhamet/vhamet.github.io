@@ -1,4 +1,4 @@
-import { RickMortyCharacter } from "./RickMortyInfo";
+import { RickMortyCharacter } from "../../utils/rickmorty";
 
 type RickMortyDataViewProps = { character: RickMortyCharacter };
 
