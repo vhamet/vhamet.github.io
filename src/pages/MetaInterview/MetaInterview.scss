@@ -1,0 +1,22 @@
+.meta {
+  display: flex;
+  align-items: center;
+
+  &__list {
+    height: 200px;
+    width: 50px;
+    padding: 2rem;
+    border: 1px solid white;
+    border-radius: 8px;
+  }
+
+  &__actions {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+
+    .button:first-child {
+      margin-bottom: 1rem;
+    }
+  }
+}

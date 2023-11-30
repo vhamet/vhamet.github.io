@@ -1,0 +1,52 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.button {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  @include bold;
+  color: #202124;
+  background-color: $main;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  
+  * {
+      cursor: pointer;
+  }
+
+  &:hover {
+    background-color: $main-lighter;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $main;
+    }
+  }
+
+  &.error {
+    color: white;
+    background-color: $error;
+
+    &:hover {
+      background-color: $error-lighter;
+    }
+  }
+
+  &.hollow {
+    color: $main;
+    background: #343434;
+
+    &:hover {
+      color: #202124;
+      background: $main-lighter;
+    }
+  }
+}

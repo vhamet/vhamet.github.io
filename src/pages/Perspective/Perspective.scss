@@ -1,0 +1,18 @@
+.perspective { 
+  height: calc(100dvh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    &__tilt {
+    width: 20rem;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    border: 3px dashed rgb(112, 219, 255);
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,119 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.rickmorty {
+  height: calc(100vh - 80px);
+  width: 500px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__toggle {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid $main;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__search {
+    padding: 0 1rem;
+
+    .dice-button {
+      background-color: field;
+      color: $main;
+
+      &:hover {
+        background-color: $main;
+        color: black;
+      }
+    }
+
+    .legend {
+      font-size: 0.85rem;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .input {
+      flex-grow: 1;
+    }
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $main;
+    border-radius: 15px;
+    color: white;
+    font-size: 50px;
+
+    &.empty, &.loading {
+      border-style: dashed;
+
+      path {
+        color: white
+        
+      };
+    }
+
+    img {
+      width: inherit;
+      border-radius: 20px;
+    }
+  }
+
+  &__dataview {
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+
+    &.error * {
+      border-color: $error;
+      color: $error;
+      fill: $error;
+
+      .button {
+        margin-top: 0.5rem;
+      }
+    }
+
+    &.fallback .rickmorty__image, &.error .rickmorty__image {
+      border-style: dashed;
+    }
+  }
+
+  &__empty {
+    font-size: 2rem;
+    @include bold;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+
+    label:first-child {
+      line-height: 2rem;
+      font-size: 2rem;
+      @include bold;
+    }
+  }
+}

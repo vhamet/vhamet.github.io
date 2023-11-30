@@ -1,0 +1,37 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid white;
+
+  &__logo {
+    margin-right: auto;
+    font-size: 2rem;
+  }
+
+  &__items {
+    a:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  a {
+    color: white;
+    @include bold;
+
+    &:hover {
+      color: $main-lighter;
+    }
+
+    &.current {
+      color: $main;
+    }
+  }
+
+
+}

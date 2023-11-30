@@ -1,0 +1,13 @@
+@import "../../assets/style/mixins.scss";
+
+.timer {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__display {
+    font-size: 4rem;
+    @include bold;
+  }
+}

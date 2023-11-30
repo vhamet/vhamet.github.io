@@ -1,0 +1,46 @@
+@import "../../assets/style/variables.scss";
+
+.queues {
+  text-align: center;
+
+  &__form {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+
+    .input {
+      flex: 1;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .queue {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__element {
+      width: 50px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__checkout {
+      border: 1px dashed $main;
+      border-radius: 15px;
+    }
+
+    &__client {
+      border: 1px solid $main;
+      border-radius: 50px;
+    }
+  }
+}

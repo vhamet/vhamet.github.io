@@ -1,0 +1,52 @@
+@import "../../assets/style/mixins.scss";
+
+.breakingbad {
+  --breaking-bad: #0f5135;
+  --breaking-bad-light: #146b47;
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    height: 6rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2.5rem;
+    @include bold;
+
+    .breakified {
+      aspect-ratio: 1;
+      padding: 0.3rem;
+      background-color: var(--breaking-bad);
+      text-transform: capitalize;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__inputs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__button {
+    color: white;
+    background-color: var(--breaking-bad);
+
+    &:hover {
+      background-color: var(--breaking-bad-light);
+    }
+  }
+}

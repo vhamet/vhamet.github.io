@@ -1,0 +1,53 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover {
+    .checkbox__box {
+      border-color: $white-lighter;
+      color: $main-lighter;
+    }
+    .checkbox__label {
+      color: $white-lighter;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+
+    &:hover {
+        opacity: 0.4;
+    }
+
+    * {
+      cursor: not-allowed;
+    }
+  }
+
+  &__box {
+    height: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $main;
+    @include bold;
+    border: 1px solid $white;
+    border-radius: 4px;
+  }
+
+  &__label {
+    margin-left: 0.5rem;
+    color: $white;
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../assets/style/mixins.scss";
+
+.directory-tree {
+  &__file > svg {
+      margin-right: 0.5rem;
+      color: cadetblue;
+  }
+
+  &__folder {
+    position: relative;
+    &__title {
+      @include bold;
+
+      &.clickable {
+        cursor: pointer;
+      }
+
+      > svg {
+        margin-right: 0.5rem;
+        color: bisque;
+      }
+    }
+
+    &__content {
+      padding-left: 1rem;
+      border-left: 0.5px solid white;
+      display: none;
+      
+      &.expanded {
+        display: block;
+      }
+    }
+
+  }
+}

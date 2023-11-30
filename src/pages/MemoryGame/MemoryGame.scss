@@ -1,0 +1,49 @@
+@import "../../assets/style/variables.scss";
+
+.memory-game {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 img {
+    height: 50px;
+  }
+
+  &__cards {
+    width: calc(300px + 4rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem
+  }
+
+  .card {
+    height: 90px;
+    width: 60px;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &.up {
+      background-color: $white;
+    }
+
+    &.down {background: $main;
+      background: radial-gradient(circle, $main 0%, rgba(252,70,107,1) 100%);
+    }
+
+    &.selected {
+      border: 4px solid $main;
+    }
+
+    &.found {
+      border: 4px solid green;
+    }
+  }
+}
+  

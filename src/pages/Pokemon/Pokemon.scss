@@ -1,0 +1,125 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.pokemon {
+  width: 450px;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__actions {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    display: flex;
+
+    .input {
+      flex: 1;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__suggestions {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  &__data {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed $main;
+    border-radius: 8px;
+
+    &.filled, &.filled .pokemon__picture {
+      border-style: solid;
+    }
+
+    &.filled .pokemon__moves tr {
+      border-bottom-style: solid;
+    }
+
+    &.error {
+      border-color: $error;
+    }
+
+    &.error .pokemon__picture {
+      font-size: 0.75rem;
+      border-color: $error;
+    }
+
+    &.error .pokemon__moves tr {
+      border-bottom-color: $error;
+    }
+  }
+
+  &__name {
+    font-size: 1.75rem;
+    @include bold;
+    
+
+    label {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__picture {
+    width: 35%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px dashed $main;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+    }
+    
+    button {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__moves {
+    table {
+      border-collapse: collapse; 
+      text-align: center;
+    }
+
+    thead {
+      font-size: 1.25rem;
+      @include bold;
+    }
+
+    tr {
+      border-bottom: 1px dashed $main;
+    }
+
+    td {
+      padding: 0.2rem 0.5rem;
+    }
+  }
+
+  .pokemon-suggestion {
+    color: $main;
+    cursor: pointer;
+    
+    &:hover {
+      text-decoration: underline;
+      color: $main-lighter;
+    }
+  }
+}

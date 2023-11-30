@@ -1,0 +1,214 @@
+@import "../../assets/style/mixins.scss";
+@import "../../assets/style/variables.scss";
+
+.wordle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin: 1rem 0;
+    cursor: pointer;
+
+    &.victory {
+      color: #538d4e;
+    }
+
+    &.defeat {
+      color: $error;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__message {
+    height: 52px;
+    width: 182px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 5rem;
+    z-index: 10;
+    padding: 1rem;
+    border-radius: 2px;
+    @include bold;
+    font-size: 0.85rem;
+    color: #484848;
+    background-color: $white-darker;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &.visible {
+      opacity: 1;
+      transition: opacity 0.001s;
+    }
+  }
+
+  &__grid {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__attempt {
+    display: flex;
+    gap: 4px;
+
+    &.shake {
+      animation: shake 0.4s;
+    }
+  }
+
+  &__guess {
+    &__outer {
+      height: 52px;
+      width: 52px;
+      perspective: 1000px;
+
+      &.flip .wordle__guess__inner {
+        transform: rotateX(180deg);
+      }
+
+      &.bounce {
+        animation: bounce 0.75s;
+      }
+    }
+    
+    &__inner {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      transition: transform 0.75s;
+      transform-style: preserve-3d;
+
+      .wordle__slot {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+
+        &--front {
+          transform: rotateX(180deg);
+        }
+        
+        &--back {
+          border: 2px solid rgba(220, 220, 220, 0.4);
+
+        }
+      }
+    }
+  }
+
+  &__slot {
+    width: 52px;
+    aspect-ratio: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    @include bold;
+    text-transform: uppercase;
+    user-select: none;
+
+    &.pending {
+      border: 2px solid rgba(150, 150, 150, 0.3);
+    }
+
+    &.filled {
+      border-color: rgba(220, 220, 220, 0.4);
+      animation: beat 0.1s;
+    }
+
+    &.right, &.victory {
+      background: #538d4e;
+      color: white;
+    }
+
+    &.wrong {
+      background-color: #3a3a3c;
+    }
+
+    &.misplaced {
+      background-color: #b59f3b;
+    }
+  }
+
+  &__keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    &__line {
+      display: flex;
+      gap: 5px;
+    }
+
+    &__key {
+      height: 58px;
+      width: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      @include bold;
+      border-radius: 5px;
+      text-transform: uppercase;
+      background-color: #818384;
+      cursor: pointer;
+
+      &.enter-key {
+        width: 65px;
+        font-size: 0.675rem;
+      }
+
+      &.backspace-key {
+        width: 65px;
+      }
+
+      &.right {
+        background: #538d4e;
+        color: white;
+      }
+  
+      &.wrong {
+        background-color: #3a3a3c;
+      }
+  
+      &.misplaced {
+        background-color: #b59f3b;
+      }
+    }
+  }
+}
+
+@keyframes beat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(3px); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  17% { transform: translateY(15px); }
+  34% { transform: translateY(0); }
+  51% { transform: translateY(10px); }
+  68% { transform: translateY(0); }
+  85% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}

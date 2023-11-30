@@ -1,0 +1,29 @@
+@import "../../assets/style/mixins.scss";
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+  @include bold;
+
+  label {
+    @include bold;
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border: 1px solid field;
+    border-radius: 8px;
+    outline: none;
+
+    &:focus {
+      border: 1px dashed rgb(220, 220, 220);
+    }
+
+    &::placeholder {
+      font-family: "Arial";
+    }
+  }
+}

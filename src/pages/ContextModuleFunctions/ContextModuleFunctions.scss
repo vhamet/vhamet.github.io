@@ -1,0 +1,75 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.cmf {
+  width: 500px;
+  padding: 2rem 0;
+
+  > form {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    border: 1px dashed $main;
+    border-radius: 15px;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  &__identity {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+
+    > .input {
+      flex: 1;
+    }
+  }
+
+  &__actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+
+    svg {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__error {
+    padding: 0.5rem;
+    color: $error;
+    border: 1px solid $error;
+    border-radius: 15px;
+
+  }
+
+  &__avatar {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    background: #343434;
+    border-radius: 15px;
+
+    > svg {
+      width: 8rem;
+    }
+
+    &__infos {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.825rem;
+
+      label:first-child {
+        font-size: 1.2rem;
+        @include bold;
+      }
+    }
+  }
+}
